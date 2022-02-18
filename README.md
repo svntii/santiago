@@ -1,4 +1,4 @@
-# Santiago Rodriguez :dizzy: :seedling:
+# :dizzy: Santiago Rodriguez :seedling:
 - My Stuff and Things
 ## About Me
 - **FROM:** Bronx, NY  
