@@ -1,0 +1,111 @@
+#!/bin/sh
+
+export PATH=/home/tao/bin:$PATH
+
+COWFILE=$(cowsay -l | awk 'NR > 1' | tr ' ' '\n' | grep -Ev 'bong|sodomize|kiss|head-in|telebears' | shuf | head -n 1)
+
+rude() {
+    echo
+    shuf <<EOF | head -n 1 | cowsay -f $COWFILE
+Uh... What? What do you want?
+Leave me alone!
+Ugh, this again?
+Really, you are spending your time on this?
+Ain't nobody got time for this
+No
+Start the game already!
+Enemy sighted!
+Quit touching me!
+EOF
+}
+
+taunt() {
+    echo
+    shuf <<EOF | head -n 1 | cowsay -f $COWFILE
+Bzzt!
+PEBKAC!
+Try harder.
+Maybe you should quit.
+WTF ARE YOU TRYING TO DO?
+Nice try noob.
+Lol, L2Unix!
+Oh, I am so scared.
+No dice.
+You are not very good at this.
+404
+NACK
+Eh, smite me.
+You can't do that.
+It is good to be the king.
+Illegal Operation
+All hail, king of the losers!
+Wololo.
+Roggan.
+EOF
+}
+
+hangup() {
+    echo
+    shuf <<EOF | head -n 1 | cowsay -f $COWFILE
+Say my name, Say my name
+Hey I just met you / And this is crazy / But here's my number / So call me maybe (not)
+You used to call me on my cell phone
+You're intruding on what's mine and You're taking up my time
+Sorry I'm not home right now / I'm walking into spiderwebs
+And it's all your fault / I screen my phone calls
+EOF
+}
+
+bus() {
+    echo
+    shuf <<EOF | head -n 1 | cowsay -f $COWFILE
+Come and ride the train, the choo choo!
+The Vengabus is coming / And everybody's jumping
+The wheels on the bus go round and round...
+But can I buy your Magic Bus? (too much, Magic Bus)
+Go Speed Racer Go Speed Racer Go Speed Racer, Go!
+EOF
+}
+
+alarm() {
+    echo
+    shuf <<EOF | head -n 1 | cowsay -f $COWFILE
+Wake me up before you go-go / Don't leave me hanging on like a yo-yo
+Oh my morning's coming back /  The whole world’s waking up
+Wake me up, wake me up inside; I can't wake up
+And you've been so busy lately, that you haven't found the time, To open up your mind, And watch the world spinning gently out of time
+Tell me I'm not dreaming but are we out of time?
+If you're lost you can look and you will find me, time after time
+If you fall I will catch you, I will be waiting, time after time
+EOF
+}
+
+user1() {
+    cmatrix
+}
+
+user2() {
+    nc towel.blinkenlights.nl 23
+}
+
+trap 'hangup'	HUP
+trap 'bus'	BUS
+trap 'alarm'	ALRM
+trap 'user1'	USR1
+trap 'user2'	USR2
+trap 'taunt'	INT QUIT ILL ABRT FPE KILL SEGV PIPE TERM
+
+sleep 1
+
+rude
+
+count=0
+while :; do
+    sleep 1
+    if [ $count -eq 10 ]; then
+	taunt
+	count=0
+    fi
+    count=$((count + 1))
+done
+

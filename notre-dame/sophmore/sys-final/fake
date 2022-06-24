@@ -1,0 +1,5 @@
+du: cannot read directory '/etc/ppp/peers': Permission denied
+du: cannot read directory '/etc/ssl/private': Permission denied
+du: cannot read directory '/etc/polkit-1/localauthority': Permission denied
+du: cannot read directory '/etc/chatscripts': Permission denied
+du: cannot read directory '/etc/cups/ssl': Permission denied

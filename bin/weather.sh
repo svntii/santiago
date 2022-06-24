@@ -1,8 +1,7 @@
 #!/bin/sh
 
-# Author: Santiago Rodriguez
-# Title:weather.sh
-# Description: Fetches the weather information for any specified zip code and extract the temperature and forecast from weather.gov
+# weather.sh
+# fetch the weather information for any specified zip code and extract the temperature and forecast
 
 # GLOBALS
 
